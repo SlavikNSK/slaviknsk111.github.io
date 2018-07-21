@@ -100,8 +100,9 @@
 	.intro
 		.intro-content
 			&-desc
-				h1
-					font-size: 30px
+				div
+					h1
+						font-size: 30px
 					
 	.portfolio-section
 		grid-template-columns: 1fr
@@ -148,6 +149,8 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px)
+	.cd-primary-nav 
+    padding: 80px 0
 	/**/
 
 
@@ -178,6 +181,14 @@
     transform: translate3d(0, 0, 0)
     -webkit-backface-visibility: hidden
     backface-visibility: hidden
+
+  .cd-primary-nav 
+  	li 
+	    font-size: 30px
+	    font-size: 1.875rem  
+  .cd-primary-nav .cd-label 
+    font-size: 16px
+    font-size: 1rem
 
   .cd-header.is-fixed 
     position: fixed

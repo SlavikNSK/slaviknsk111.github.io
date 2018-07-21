@@ -8,7 +8,7 @@ $(function() {
 	  if(currentTop > 0) {
 	  	$('.header').addClass('is-fixed');
 	    /* Когда больше 450 анимируем и закрашиваем хедер + ставим метку скрола */
-	    if(currentTop > 450 && $('.header').hasClass('is-fixed')) {
+	    if(currentTop > 300 && $('.header').hasClass('is-fixed')) {
 	    	$('.header').addClass('bgc-blue scrolled');	    	
 	    } else {
 	    	/* Если меньше 350, и скролился, то анимируем прозрачность убираем синий */		    		
