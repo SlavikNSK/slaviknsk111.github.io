@@ -1,0 +1,682 @@
+@import "fonts"
+@import "libs"
+@import "base"
+@import "vars"
+
+/*BASE TAGS*/
+input, textarea
+	border: none
+	padding: 15px 20px
+	width: 100%
+	font-family: Arial, sans-serif
+	font-style: italic
+	outline: none
+	transition: background-color .25s ease
+	&:focus
+		background-color: $light
+	&::placeholder
+		color: lighten($dark, 20%)
+
+html, body 
+  height: 100%
+
+a
+  color: white
+  text-decoration: none
+
+button:focus 
+	outline: none
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 10px 60px
+	font-size: 20px
+	font-weight: 800
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+	&.button-gray
+		background-color: $gray
+		&::after
+			background-color: darken($gray, 15%)
+		&:hover
+			background-color: lighten($gray, 5%)
+			&::after
+				opacity: .22
+		&:active
+			background-color: darken($gray, 5%)
+			&::after
+				opacity: .32
+
+
+
+
+
+
+
+
+
+.preloader
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 100
+	background-color: #fff
+	.pulse
+		position: relative
+		left: 50%
+		top: 50vh
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+
+
+
+
+/* Header */
+.header
+	position: absolute
+	z-index: 10
+	display: block
+	width: 100%
+	font-family: "Source Sans Pro", sans-serif
+	background-color: transparent
+	overflow: hidden
+	.nav-menu
+		width: 100%
+		max-width: 1440px
+		height: 100%
+		min-height: 60px
+		margin: 0 auto
+		position: relative;
+		grid-template-columns: 1fr 1fr
+		align-items: center
+		.nav-left-side
+			grid-column: 1
+			text-align: left
+			padding-left: 25px
+			font-size: 30px
+			font-family: intro-grid, sans-serif
+			font-weight: normal
+			.logo-link
+				grid-template-columns: minmax(71px, 71px) minmax(100px, 100px)
+				align-items: center
+				.site-logo
+					display: block
+					height: 40px
+					width: 71px
+					background-size: cover
+	    		background-position: center
+	    		float: left
+				.logo-tag
+					margin-left: 0px
+					color: #db0a40
+		.nav-right-side
+			grid-column: 2
+			text-align: right	
+			padding-right: 25px
+			justify-self: end
+			grid-template-columns: minmax(60px, 60px)
+			.hamburger
+				display: block
+				position: relative
+				padding: 0
+				height: 34px
+				margin-left: auto
+				.hamburger-box
+					width: 30px
+					margin: 5px 5px
+
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+	background-color: #fff
+	border-radius: 1px
+	height: 3px
+	width: 30px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Меню */
+.cd-primary-nav
+  position: fixed
+  height: 100%
+  width: 100%
+  margin: 0
+  padding: 80px 0
+  background: rgba(2, 23, 37, 0.96)
+  z-index: 9
+  text-align: center
+  overflow: auto
+  -webkit-overflow-scrolling: touch
+  transform: translateY(-100%)
+
+@keyframes down
+	0%
+		transform: translateY(-100%)
+	100%
+		transform: translateY(0%)
+
+.cd-primary-nav 
+	li 
+	  font-size: 22px
+	  font-size: 1.375rem
+	  font-weight: 300
+	  -webkit-font-smoothing: antialiased
+	  -moz-osx-font-smoothing: grayscale
+	  margin: .2em 0
+	  text-transform: capitalize
+
+.is-visible 
+  -webkit-transform: translateY(0)
+  -moz-transform: translateY(0)
+  -ms-transform: translateY(0)
+  -o-transform: translateY(0)
+  transform: translateY(0)
+
+@media only screen and (min-width: 768px) 
+  .cd-primary-nav 
+    padding: 80px 0
+  
+@media only screen and (min-width: 1170px) 
+  .cd-primary-nav 
+  	li 
+	    font-size: 30px
+	    font-size: 1.875rem  
+  .cd-primary-nav .cd-label 
+    font-size: 16px
+    font-size: 1rem
+
+
+
+
+
+
+
+
+
+
+/* Intro */
+.intro
+	min-height: 60vh	
+	position: relative
+	align-content: center
+	grid-template-rows: 1fr
+	.intro-content
+		position: relative
+		display: grid
+		overflow: hidden
+		width: 100%
+		height: 100%
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			background-color: #000	
+			opacity: 0.4
+		.intro-bg
+			position: absolute
+			background-size: cover
+			background-position: center
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+		&-desc
+			color: #fff
+			display: grid
+			align-items: center
+			text-align: center
+			padding: $gutter			
+			h1
+				cursor: default
+				z-index: 1
+				text-transform: uppercase
+				font-family: intro-grid,sans-serif
+				font-size: 40px
+				span					
+					color: #db0a40		
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add-Equipment */
+.add-equipment
+	.back-img		
+		overflow: hidden
+		min-height: 500px
+		height: 500px
+		background-size: cover
+		background-position: top
+		position: relative
+		align-content: center		
+		.shadow::before
+			content: ''
+			background-color: transparent
+			background: linear-gradient(to top, black 30%, transparent 100%)
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			left: 0
+			opacity: 0.5
+			z-index: 1
+		.container		
+			color: #fff	
+			height: 100%
+			grid-template-rows: 1fr 1fr
+			.title
+				padding: 30px 10px
+				margin: 0 auto
+				h2				
+					text-transform: uppercase
+					font-family: intro-grid, sans-serif
+					font-weight: normal					
+					box-shadow: inset 0 -3px 0 0 $accent
+					text-shadow: 1px 1px 2px black
+			.desc
+				z-index: 2
+				display: grid
+				grid-template-columns: 1fr 1fr
+				h1
+					font-family: intro-grid, sans-serif
+					font-weight: normal		
+					text-transform: none
+					padding-top: 50px
+					span
+						color: $accent
+	.bgc-darkblue
+		.container
+			padding-top: 50px
+			padding-bottom: 50px
+			.buttoncase
+				padding: 0
+
+.cards
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+	grid-gap: 20px
+	.card
+		text-decoration: none
+		grid-template-rows: 1fr 0.8fr
+		transition: background-color .25s ease
+		overflow: hidden
+		color: #fff
+		&:hover
+			.card-img
+				transform: scale(1.05) translateY(-6.5px)
+		.card-img
+			height: 270px
+			background-size: cover
+			background-position: center
+			transition: transform .25s ease
+		.card-content
+			padding-top: 10px
+			text-align: left
+			h4
+				font-size: 18px
+				font-family: intro-grid, sans-serif
+				font-weight: normal		
+				line-height: 1.3
+				margin: 
+					top: 10px
+					bottom: 0
+				transition: color .25s ease
+				align-content: center
+				&::before
+					content: '#'
+					color: $accent
+			p
+				margin:
+					top: 5px
+					bottom: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+.portfolio-section
+	padding: 10px
+	grid-template-columns: repeat(4, 1fr)
+	grid-gap: 10px
+	background-color: #000f1e
+
+.portfolio-item
+	min-height: 32vh
+	background-size: cover
+	background-position: center
+	text-align: center
+	align-content: center
+	padding: $gutter
+	font-size: 20px
+	font-weight: bold
+	color: #fff
+	position: relative
+	transition: color .5s ease
+	cursor: pointer
+	&:hover
+		color: $accent
+		&::before
+			opacity: .85
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #000
+		opacity: .25
+		transition: opacity .5s ease
+	> *
+		z-index: 1
+
+	&:nth-child(1)
+		grid-column: 1 / 3
+	&:nth-child(5)
+		grid-column: 2 / 4
+	&:nth-child(6)
+		grid-column: 4
+		grid-row:  2 / 4
+	&:nth-child(8)
+		grid-column: 2 / 4
+
+.buttoncase
+	grid-column: 1 / 5
+	padding: $gutter $gutter 50px
+
+.container
+	max-width: 1200px
+	margin: auto
+	padding: 0 $gutter
+
+.container-main
+	background-color: #000f1e
+
+.landing-section
+	padding: 80px 0
+	background-color: #fff
+	h2
+		font-size: 34px
+		font-weight: 800
+		color: $dark
+		line-height: 1.2
+
+.section-ready
+	background-color: $light
+	.container
+		grid-template-columns: 1fr 1fr
+
+.ready-left
+	border-right: 1px solid #dadada
+	font-size: 18px
+	padding:
+		top: 60px
+		bottom: 60px
+		right: 60px
+	h2
+		margin-top: 0
+		margin-bottom: 40px
+
+.ready-right
+	padding-left: 40px
+
+.formsection
+	padding: 30px 0
+	background-color: $dark
+	input
+		background-color: lighten($dark, 6%)
+	form
+		grid-gap: $gutter
+		grid-template-columns: repeat(4, 1fr)
+	.button
+		font-size: 17px
+		padding: 14.5px
+		width: 100%
+
+
+
+
+
+.rent
+	min-height: 400px
+	//background-color: #000f1e
+
+
+
+
+/* BLOG */
+.section-blog
+	h2
+		margin:
+			top: 0
+			bottom: 50px
+	.buttoncase
+		padding-bottom: 0
+
+.blog-home
+	grid-gap: $gutter
+	grid-template-columns: repeat(4, 1fr)
+
+.blog-item
+	background-color: #F7F7F7
+	text-decoration: none
+	grid-template-rows: 1fr 1fr
+	transition: background-color .25s ease
+	overflow: hidden
+	color: #333
+	&:nth-child(3)
+		grid-column: 3 / 5
+	&:nth-child(4)
+		grid-column: 1 / 3
+	&:hover
+		background-color: $light
+		h4
+			color: $dark
+		.blog-item-img
+			transform: scale(1.05) translateY(-6.5px)
+	&-img
+		height: 270px
+		background-size: cover
+		background-position: center
+		transition: transform .25s ease
+	&-content
+		padding: 25px
+		text-align: center
+		align-content: center
+		h4
+			font-size: 18px
+			color: #666
+			line-height: 1.3
+			margin: 0
+			transition: color .25s ease
+		p
+			margin:
+				top: 20px
+				bottom: 0
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+.main-footer
+	padding: 60px 0
+	background-color: darken($dark, 8%)
+	text-align: center
+	color: #4E5355
+
+.footer-logo
+	font-family: intro-grid, sans-serif
+	font-size: 22px
+	line-height: 1.16
+	span
+		display: block
+		color: #707476
+		font-size: 26.8px
+
+.footer-copy
+	font-size: 20px
+	font-weight: bold
+	color: #494D50
+	margin-top: 20px
+
+
+
+
+
+/* Для жабаскрипта */
+.is-fixed
+	position: fixed
+	top: 0
+
+.grid
+	display: grid
+
+.bgc-trans
+	background-color: transparent
+	animation: animate-bg-trans-header 0.5s ease
+@keyframes animate-bg-trans-header
+	0%
+		background-color: $blue
+	100%
+		background-color: transparent
+
+.bgc-blue
+	background-color: $blue
+	animation: animate-bg-blue-header 0.5s ease
+@keyframes animate-bg-blue-header
+	0%
+		background-color: transparent
+	100%
+		background-color: $blue
+
+.bgc-darkblue
+	background-color: $darkblue
+
+.is-open
+	background-color: $blue
+	animation: animate-bg-blue-header 0.5s ease
+
+
+
+
+@import "media" // Всегда в конце

@@ -1,0 +1,10 @@
+.bg-scale-plus {
+  transform: scale(1.07);
+  transition-property: all;
+  transition-duration: 3s;
+  }
+.bg-scale-minus {
+  transform: scale(1);
+  transition-property: all;
+  transition-duration: 3s;
+  }
